@@ -68,8 +68,8 @@ def Random_Forest_Predict(X, trees):
 from sklearn.model_selection import train_test_split
 
 # Load data
-df = pd.read_csv('collegePlace.csv')
-class_name = 'PlacedOrNot'
+df = pd.read_csv('heart.csv')
+class_name = 'output'
 X = df.drop(class_name, axis=1)
 y = df[class_name]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -81,7 +81,7 @@ y_pred = Random_Forest_Predict(X_test, trees)
 
 
 accuracy = accuracy_score(y_test, y_pred)
-print('Accuracy:', accuracy)
+print('My implementation of RF Accuracy:', accuracy)
 
 
 # Now we test the accuracy of the Random Forest Classifier from sklearn to see how well our implementation did.
@@ -95,7 +95,7 @@ rf.fit(X_train, y_train)
 y_pred1 = rf.predict(X_test)
 
 accuracy = accuracy_score(y_test, y_pred1)
-print('Accuracy:', accuracy)
+print('SKLearn RF Accuracy:', accuracy)
 
 
 
